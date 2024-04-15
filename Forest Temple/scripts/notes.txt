@@ -1,0 +1,87 @@
+Terms:
+Copy -> Copy text AND ADJUST for new variables/constants
+Modify -> Add to that specific line data needed.
+
+Parts to change to add a new character:
+
+Game.as: Needing to add inputs (3 inputs: up, left, right)
+Add from line 721 code similar to the range 730-732, that is, a "case [keyCodeValue]:", then set a variable to True, then break
+Add from line 742 "[varName] = False;", to make sure there definetely no input
+
+Needing to handle the removing of keyPressed
+Add from line 870 code similar to the range 871-873, that is, a "case [keyCodeValue]:", then set a variable to False, then break
+
+level.as: Needing to add character creation, and also processing of inputs + animation. Might also need to add a finishing door, but that can come later
+
+REQUIRED:
+NEw declared variables:
+Copy line 41 (allowJump: bool)
+Copy line 63 (prohibJump: bool)
+Copy lines 75,81, 109 (Left, Up, Right variables: bool)
+Copy line 135 (person: b2Body)
+
+level() config:
+Copy line 179-181 with Up, Left, Right defaulting to zero at every initialisation
+
+CHAR CREATION:
+Copy lines 803-835 for a FireBoy base, and lines 836-868 for a WaterGirl base
+Explanation of key variables:
+Density -> How much to weigh per UNIT AREA, 2D game after all. Think laminas.
+Friction -> self-explanatory
+Restitution -> how elastic is collision
+localPosition -> Where to center the hitbox
+fixedRotation -> Don't rotate this
+userData -> Character-specific creator (use self-created one)
+userData.filters -> used to all a glowing effect (defo do)
+position -> Set the position right away
+
+Three types of creation/hitboxes: Creating the head (called pers1/2) and the legs (called fire/waterLegs) and the torso (rect)
+
+Modify line 1199 for a third person; not sure why "Tuting" is needed but oke
+Copy lines 1211-1215 to set visibility of all sprites to zero. These get toggled on/off depending if running, standing, jumping up, falling, or heading up stairs
+
+Copy lines 1221-1369 to add controls.
+More specifically:
+1221-1223 -> Setting variables
+1224-1231 -> Registering collisions
+1232-1235 -> Check if the sprite is on the ground
+1236-1280 -> If they cannot jump (hence in air), calculate where they are facing and set a different sprite/facing
+1281-1299 -> L/R Movement sprite setting, or if not moving then set to the stationary sprite
+1300-1347 -> If L/R key is held and not at max speed, then accelerate
+1348-1358 -> If no key is held, then decelerate person
+1359-1365 -> IF you can jump due to location and controls, and U is pressed, play jump sound, prohibit jump and accelerate upwards
+1366-1369 -> If jump isn't pressed, don't prohibit jump
+
+Copy lines 1698-1706 to add ded handling, by pausing, ending, play ded animation and removing character.
+
+Modify 218-763 so that there is also a start point for your person, kinda important, or just copy an existing one to be safe.
+
+OPTIONAL:
+Starting Position
+New declared variables:
+Copy Line 33 (StartPos: b2Vec2)
+
+Gems:
+New declared variables:
+Copy line 45 (BDCount: Number) (counts gems?)
+
+Jump sound:
+New declared variables:
+Copy line 95 (J1: JumpSound)
+Copy line 186 (J1 set to a new JumpSound)
+Copy line 1361 into controls to add the new jump sound.
+
+Finish door:
+New declared variables:
+Copy line 111 (DoorChannel; SoundChannel) (doorSounds)
+Copy line 195 (initialisation of DoorChannel)
+Modify line 1103 to add a third parameter for a new finish
+Copy lines 1134-1154 to actually create the third door
+Copy lines 1613-1616 to add a new door thing to check for
+Copy lines 1621-1666 to do more stuff
+Modify the other door scripts (1621-1697) to add the extra door to check for. GL figuring that out lol 
+
+
+
+
+

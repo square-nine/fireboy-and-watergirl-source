@@ -1,0 +1,11 @@
+· use 
+--- RECORDSEPARATOR ---
+a,w,d
+--- RECORDSEPARATOR ---
+ to move WaterGirl
+--- RECORDSEPARATOR ---
+· use the 
+--- RECORDSEPARATOR ---
+arrow keys
+--- RECORDSEPARATOR ---
+ to move FireBoy 

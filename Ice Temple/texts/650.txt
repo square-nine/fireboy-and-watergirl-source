@@ -1,0 +1,3 @@
+· In         levels the goal is to grab the green 
+--- RECORDSEPARATOR ---
+diamond, and then got to the exit doors.

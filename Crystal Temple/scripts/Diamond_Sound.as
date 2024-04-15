@@ -1,0 +1,15 @@
+package
+{
+   import flash.media.Sound;
+   
+   [Embed(source="/_assets/276_Diamond_Sound.mp3")]
+   public dynamic class Diamond_Sound extends Sound
+   {
+       
+      
+      public function Diamond_Sound()
+      {
+         super();
+      }
+   }
+}
